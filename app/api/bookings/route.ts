@@ -1,19 +1,18 @@
-// In-memory storage for bookings (in production, use a database)
-const bookings: any[] = []
+import connectDB from "@/lib/mongodb"
+import Booking from "@/models/Booking"
 
 export async function POST(request: Request) {
   try {
+    await connectDB()
+
     const bookingData = await request.json()
 
-    // Add booking ID and timestamp
-    const booking = {
-      id: Date.now().toString(),
+    const booking = new Booking({
       ...bookingData,
-      createdAt: new Date().toISOString(),
       status: "pending",
-    }
+    })
 
-    bookings.push(booking)
+    await booking.save()
 
     console.log("[v0] New booking created:", booking)
 
@@ -36,9 +35,13 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
+    await connectDB()
+
+    const bookings = await Booking.find({}).sort({ createdAt: -1 })
+
     return Response.json({
       success: true,
-      bookings: bookings.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
+      bookings,
     })
   } catch (error) {
     console.error("[v0] Error fetching bookings:", error)

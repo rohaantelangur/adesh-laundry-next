@@ -1,36 +1,12 @@
-// In-memory storage for services (in production, use a database)
-const services = [
-  {
-    id: "1",
-    name: "Wash & Fold",
-    description: "Professional washing, drying, and folding service",
-    basePrice: 2.5,
-    unit: "per lb",
-    features: ["Same-day service available", "Eco-friendly detergents", "Fabric softener included"],
-    category: "standard",
-  },
-  {
-    id: "2",
-    name: "Dry Cleaning",
-    description: "Professional dry cleaning for delicate and formal wear",
-    basePrice: 8.99,
-    unit: "per item",
-    features: ["Expert stain removal", "Professional pressing", "Garment protection"],
-    category: "premium",
-  },
-  {
-    id: "3",
-    name: "Express Service",
-    description: "Same-day pickup and delivery service",
-    basePrice: 3.99,
-    unit: "per lb",
-    features: ["4-hour turnaround", "Priority handling", "SMS notifications"],
-    category: "express",
-  },
-]
+import connectDB from "@/lib/mongodb"
+import Service from "@/models/Service"
 
 export async function GET() {
   try {
+    await connectDB()
+
+    const services = await Service.find({ isActive: true }).sort({ createdAt: -1 })
+
     return Response.json({
       success: true,
       services,
@@ -49,15 +25,12 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    await connectDB()
+
     const serviceData = await request.json()
 
-    const service = {
-      id: Date.now().toString(),
-      ...serviceData,
-      createdAt: new Date().toISOString(),
-    }
-
-    services.push(service)
+    const service = new Service(serviceData)
+    await service.save()
 
     console.log("[v0] New service created:", service)
 
