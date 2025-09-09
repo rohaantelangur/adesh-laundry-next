@@ -19,7 +19,7 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  title: "DryClean Pro - Premium Laundry & Dry Cleaning Services",
+  title: "Adesh Laundry - Premium Laundry & Dry Cleaning Services",
   description:
     "Professional laundry and dry cleaning services with convenient pick-up & delivery. Subscribe to our plans for regular service.",
   generator: "v0.app",

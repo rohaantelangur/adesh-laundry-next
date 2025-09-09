@@ -12,7 +12,7 @@ export function Footer() {
             <div className="flex items-center space-x-2 mb-6">
               <Shirt className="h-8 w-8 text-primary" />
               <span className="text-2xl font-bold text-primary font-[family-name:var(--font-playfair)]">
-                DryClean Pro
+                Adesh Laundry
               </span>
             </div>
             <p className="text-muted-foreground mb-6 font-[family-name:var(--font-source-sans)] max-w-md">
@@ -136,7 +136,7 @@ export function Footer() {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-muted-foreground">
-              <p>&copy; 2024 DryClean Pro. All rights reserved.</p>
+              <p>&copy; 2024 Adesh Laundry. All rights reserved.</p>
             </div>
             <div className="flex items-center gap-6">
               <Badge variant="outline" className="text-xs">

@@ -14,7 +14,7 @@ export default function ServicesPage() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <Shirt className="h-8 w-8 text-primary" />
-              <h1 className="text-2xl font-bold text-primary font-[family-name:var(--font-playfair)]">DryClean Pro</h1>
+              <h1 className="text-2xl font-bold text-primary font-[family-name:var(--font-playfair)]">Adesh Laundry</h1>
             </Link>
             <nav className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-foreground hover:text-primary transition-colors">
