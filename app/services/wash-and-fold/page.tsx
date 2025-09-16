@@ -173,9 +173,9 @@ export default function WashAndFoldPage() {
           <Card className="border-border">
             <CardHeader className="text-center">
               <CardTitle className="text-4xl font-bold text-primary font-[family-name:var(--font-playfair)]">
-                $2.50 per pound
+                $70 per KG
               </CardTitle>
-              <CardDescription className="text-lg">Minimum order: 10 pounds ($25)</CardDescription>
+              <CardDescription className="text-lg">Minimum order: 5 KGs ($350)</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-8">

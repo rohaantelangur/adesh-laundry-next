@@ -490,7 +490,7 @@ export default function PricingPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Additional pounds are charged at our standard pay-per-use rates. We'll notify you before processing
+                  Additional KGs are charged at our standard pay-per-use rates. We'll notify you before processing
                   overage items.
                 </p>
               </CardContent>
